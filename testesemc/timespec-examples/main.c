@@ -41,7 +41,8 @@ int main(int argc, char *argv[]) {
                    "\tmono \t - Monotonic timespec\n"
                    "\n"
                    "Example:\n"
-                   "\t%s \"time|mono\"",
+                   "\t%s \"time|mono\""
+                   "\n",
                    argv[0], argv[0]);
 
             return 1;

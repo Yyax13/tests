@@ -97,7 +97,7 @@ static struct _strArray *getArgs(char *arg) {
     }
 }
 
-#define poc_mode_tABLE                                                         \
+#define poc_mode_TABLE                                                         \
     X("time", out.time)                                                        \
     X("thread", out.threadActive)                                              \
     X("active", out.active)                                                    \
@@ -117,7 +117,7 @@ static struct poc_mode_t getMode(struct _strArray *strs) {
         continue;                                                              \
     }
 
-        poc_mode_tABLE
+        poc_mode_TABLE
 #undef X
 
             printf("Invalid argument \"%s\": Skipping...\n", arg);
