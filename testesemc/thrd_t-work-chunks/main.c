@@ -51,9 +51,9 @@ int main(int argc, char *argv[]) {
 
     int workersCount = strtol(argv[1], NULL, 10);
     if (workersCount <= 0 || workersCount > (int)WORKERS_CAP) {
-        printf("Invalid <workers> value: must be between 1 and 16, received "
+        printf("Invalid <workers> value: must be between 1 and %d, received "
                "\"%s\"\n",
-               argv[1]);
+               (int)WORKERS_CAP, argv[1]);
         return 1;
     }
 
