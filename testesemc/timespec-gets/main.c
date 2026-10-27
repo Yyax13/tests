@@ -52,19 +52,19 @@ int main(int argc, char *argv[]) {
     } else
         mode = MODE_FULLY_TRUE;
 
-    printf("== timespec demonstration\n\n");
+    printf("== timespec demonstration\n");
     struct timespec ts;
 
     if (mode.time) {
         timespec_get(&ts, TIME_UTC);
 
-        printf("== Current time (with TIME_UTC):\n");
+        printf("\n== Current time (with TIME_UTC):\n");
         printf("==== Seconds: \t\t %ld\n", ts.tv_sec);
         printf("==== Nanosseconds: \t %ld\n\n", ts.tv_nsec);
     }
 
     if (mode.threadActive) {
-        printf("== Thread time (with TIME_THREAD_ACTIVE):\n");
+        printf("\n== Thread time (with TIME_THREAD_ACTIVE):\n");
 
         const size_t workersCount = WORKER_COUNT;
         struct worker_t workers[workersCount];
@@ -97,7 +97,7 @@ int main(int argc, char *argv[]) {
 
     if (mode.mono) {
         timespec_get(&ts, TIME_MONOTONIC);
-        printf("== Monotonic time (with TIME_MONOTONIC):\n");
+        printf("\n== Monotonic time (with TIME_MONOTONIC):\n");
         printf("==== Monotonic A: \t %ld.%09ld\n", ts.tv_sec, ts.tv_nsec);
 
         struct timespec tsB;
