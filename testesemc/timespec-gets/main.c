@@ -92,7 +92,7 @@ int main(int argc, char *argv[]) {
 
         printf("\n== Active time (with TIME_ACTIVE):\n");
         printf("==== Seconds: \t\t %ld\n", ts.tv_sec);
-        printf("==== Nanosseconds: \t %ld\n\n", ts.tv_nsec);
+        printf("==== Nanosseconds: \t %ld\n", ts.tv_nsec);
     }
 
     if (mode.mono) {
