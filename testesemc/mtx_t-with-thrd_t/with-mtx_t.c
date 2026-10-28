@@ -85,15 +85,9 @@ int main(int argc, char *argv[]) {
     if (tasks == NULL)
         perror("Can't malloc tasks");
 
-    int *taskArgs = malloc(tasksCount * sizeof(int));
-    if (taskArgs == NULL)
-        perror("Can't malloc taskArgs");
-
     printf("Expected result: %lu\n", tasksCount * 10000UL);
-    for (int i = 0; i < tasksCount; i++) {
-        taskArgs[i] = i % 64;
+    for (int i = 0; i < tasksCount; i++)
         tasks[i] = (struct task_t){.func = pseudoTask};
-    }
 
     uint64_t sums[workersCount];
     memset(sums, 0UL, workersCount);
