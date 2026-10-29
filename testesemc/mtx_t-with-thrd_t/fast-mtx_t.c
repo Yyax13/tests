@@ -1,13 +1,3 @@
-/**
- * I can handle this two ways:
- *      I could use the mutex directly in pseudoTask(), breaking the decoupling architecture
- *      OR
- *      I can use the mutex in the worker_f()
- *
- * I chose to use the 2nd option.
- * I also decided to set the mutex as a global variable, to follow the sum standard.
- */
-
 #include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -91,9 +81,6 @@ int main(int argc, char *argv[]) {
     for (int i = 0; i < tasksCount; i++)
         tasks[i] = (struct task_t){.func = pseudoTask};
 
-    uint64_t sums[workersCount];
-    memset(sums, 0UL, workersCount);
-
     for (size_t i = 0; i < (size_t)workersCount; i++) {
         size_t chunk = tasksCount / workersCount;
         size_t remainder = tasksCount % workersCount;
@@ -113,4 +100,6 @@ int main(int argc, char *argv[]) {
     printf("\nProgram ended\n");
 
     mtx_destroy(&mu);
+    free(tasks);
+    return 0;
 }
