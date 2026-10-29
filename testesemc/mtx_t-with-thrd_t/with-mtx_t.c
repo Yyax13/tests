@@ -74,7 +74,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    if (mtx_init(&mu, mtx_plain | mtx_recursive) != thrd_success) {
+    if (mtx_init(&mu, mtx_plain) != thrd_success) {
         printf("Can't init mtx_t mu\n");
         return 1;
     }
